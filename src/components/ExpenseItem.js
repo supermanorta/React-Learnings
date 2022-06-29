@@ -8,11 +8,11 @@ function ExpenseItem(props) {
   const day = props.date.toLocaleString('en-US', { day: '2-digit' });
   const year = props.date.getFullYear();
   return (
-    <div className="expense-item">
+    <div className='expense-item'>
       {/* <ExpenseDate></ExpenseDate> */}
       <ExpenseDate date={props.date} />
       <div className="expense-item_description">
-        <h2> props.title </h2>{" "}
+        <h2> {props.title} </h2>{" "}
         <div className="expense-item__price">${props.amount} </div>{" "}
       </div>{" "}
     </div>
