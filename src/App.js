@@ -23,33 +23,6 @@ function App() {
      date: new Date(2021, 5, 12),
    },
  ];
-
-
-  // return (
-  //   <div>
-  //     <h2> Let 's get started!</h2>
-  //     <ExpenseItem
-  //       title={expensesList[0].title}
-  //       amount={expensesList[0].amount}
-  //       date={expensesList[0].date}
-  //     ></ExpenseItem>
-  //     <ExpenseItem
-  //       title={expensesList[1].title}
-  //       amount={expensesList[1].amount}
-  //       date={expensesList[1].date}
-  //     ></ExpenseItem>{" "}
-  //     <ExpenseItem
-  //       title={expensesList[2].title}
-  //       amount={expensesList[2].amount}
-  //       date={expensesList[2].date}
-  //     ></ExpenseItem>{" "}
-  //     <ExpenseItem
-  //       title={expensesList[3].title}
-  //       amount={expensesList[3].amount}
-  //       date={expensesList[3].date}
-  //     ></ExpenseItem>{" "}
-  //   </div>
-  // );
   
   return (
    <div>
