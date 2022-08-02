@@ -6,9 +6,7 @@ import ExpenseFourm from './ExpenseFourm'
 const NewExpenses = () =>{
     return(
         <div className="new-expense">
-            <ExpenseFourm>
-
-            </ExpenseFourm>
+            <ExpenseFourm />
         </div>
     )
 }
