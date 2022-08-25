@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import './ExpenseFourm.css'
 
-const ExpenseFourm = () =>{
+const ExpenseFourm = (props) =>{
     const[enteredTitle,setTitle] = useState('');
     const[enterAmount,setAmount] = useState('');
     const[enterDate,setDate] = useState('');
@@ -59,7 +59,8 @@ const ExpenseFourm = () =>{
           amount: enterAmount,
           date: new Date(enterDate)
         };
-        console.log(expenseData);
+        
+        props.onSaveExpenseData(expenseData);
         //now clear the data after we have accepted it from user input by..
         setTitle('');
         setAmount('');

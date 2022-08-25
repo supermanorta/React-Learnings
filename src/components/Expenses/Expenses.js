@@ -3,7 +3,7 @@ import ExpenseItem from "./ExpenseItem";
   
 
 function Expenses( props ){
-  console.log("hello");
+  console.log("hello expense.js");
     return (
       <div className="expenses">
         <ExpenseItem
