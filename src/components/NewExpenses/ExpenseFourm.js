@@ -29,20 +29,9 @@ const ExpenseFourm = (props) =>{
      };
     const amountHandler=( event )=>{
       setAmount(event.target.value);
-        // setUserInput({
-        // ...userInput,
-        // enterAmount: event.target.value})
-        // setUserInput((prevState) => {
-        // return { ...prevState, enterAmount: event.target.value };
-        // });
     };
     const dateHandler=( event )=>{
       setDate(event.target.value);
-    // setUserInput({
-    //   ...userInput,
-    //   enterDate: event.target.value,
-    // });
-
         // setUserInput((prevState) => {
         // return { ...prevState, enterDate: event.target.value };
         // });
@@ -52,9 +41,6 @@ const ExpenseFourm = (props) =>{
         event.preventDefault();//prevent the defualt request from being sent
 
         const expenseData = {
-          // title: userInput.enteredTitle,
-          // amount: userInput.enterAmount,
-          // date: new Date(userInput.enterDate),
           title: enteredTitle,
           amount: enterAmount,
           date: new Date(enterDate)
@@ -65,9 +51,7 @@ const ExpenseFourm = (props) =>{
         setTitle('');
         setAmount('');
         setDate('');
-        // setUserInput(event.target.value);
-        // setUserInput(event.target.value);
-        // setUserInput(event.target.value);
+        
     };
 
     return (
