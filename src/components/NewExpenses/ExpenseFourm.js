@@ -11,7 +11,7 @@ const ExpenseFourm = (props) =>{
   //       enterAmount:'',
   //       enterDate:''
   //   })
-
+//Note the Browswer gives you the event.
     const titleChangeHandler =(event) => {
       setTitle(event.target.value);
         // this will updat the state, but you could get conflicting state of title, given that React schedules state updates, and might pullone that is dated.
@@ -20,7 +20,7 @@ const ExpenseFourm = (props) =>{
     //     enterAmount: "",
     //     enterDate: "",
     //   });
-    console.log(event);
+   
     // console.log('Title changed');
     // below will always give you the latest state of the function, since React scheudle updates when you want it updated.
     //     setUserInput((prevState) => {
@@ -48,6 +48,7 @@ const ExpenseFourm = (props) =>{
         
         props.onSaveExpenseData(expenseData);
         //now clear the data after we have accepted it from user input by..
+        //This is two way binding, we take the input but we also clear the fourm 
         setTitle('');
         setAmount('');
         setDate('');
