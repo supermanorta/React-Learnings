@@ -32,6 +32,7 @@ function Expenses( props ){
   //  });
 
 //recall {} allows you to excute JS code, or dynmaic expression in our jsx code
+let noExpensesContent = <p className="noItem">No Expense found.</p>;
   return (
     //I want to map every expense into a ExpenstItem element
     <div>
@@ -40,16 +41,16 @@ function Expenses( props ){
           selectedProp={filteredYear}
           onChangFilter={filterChangeHandler}
         />
-        {filterSelectedYearOfExpense.length === 0 ? (<p className='noItem'>No Expense found.</p>):(
-        filterSelectedYearOfExpense.map((expense) => (
+        {filterSelectedYearOfExpense.length === 0 && <p className='noItem'>No Expense found.</p>}
+        {filterSelectedYearOfExpense.map((expense) => (
           <ExpenseItem
             key={expense.id} // adding a id to a list of items helps react know where the item is,how long a list of items is, and there for does not have to work as hard to identify it.
             title={expense.title} // adding a id will also help react update the list faster
             amount={expense.amount}
             date={expense.date}
           />
-        )))
-        }
+        ))}
+        
       </Card>
     </div>
   ); 
