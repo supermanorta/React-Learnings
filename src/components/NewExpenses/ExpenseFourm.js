@@ -5,65 +5,58 @@ const ExpenseFourm = (props) =>{
     const[enteredTitle,setTitle] = useState('');
     const[enterAmount,setAmount] = useState('');
     const[enterDate,setDate] = useState('');
-// call it once, and pass a object as value, and we can group together the 3 states above
-  //  const [userInput, setUserInput] = useState({
-  //       enteredTitle:'',
-  //       enterAmount:'',
-  //       enterDate:''
-  //   })
+
 //Note the Browswer gives you the event.
     const titleChangeHandler =(event) => {
       setTitle(event.target.value);
-        // this will updat the state, but you could get conflicting state of title, given that React schedules state updates, and might pullone that is dated.
-    //   setUserInput({
-    //     enteredTitle: event.target.value,
-    //     enterAmount: "",
-    //     enterDate: "",
-    //   });
-   
-    // console.log('Title changed');
-    // below will always give you the latest state of the function, since React scheudle updates when you want it updated.
-    //     setUserInput((prevState) => {
-    //       return { ...prevState, enteredTitle: event.target.value };
-    //   });
-     };
+    };
     const amountHandler=( event )=>{
       setAmount(event.target.value);
     };
     const dateHandler=( event )=>{
       setDate(event.target.value);
-        // setUserInput((prevState) => {
-        // return { ...prevState, enterDate: event.target.value };
-        // });
-        };
+    };
 
     const submitHandler =(event) => {
-        event.preventDefault();//prevent the defualt request from being sent
+      event.preventDefault();//prevent the defualt request from being sent
 
-        const expenseData = {
-          title: enteredTitle,
-          amount: enterAmount,
-          date: new Date(enterDate)
-        };
+      const expenseData = {
+        title: enteredTitle,
+        amount: enterAmount,
+        date: new Date(enterDate)
+    };
         
-        props.onSaveExpenseData(expenseData);
+    props.onSaveExpenseData(expenseData);
         //now clear the data after we have accepted it from user input by..
         //This is two way binding, we take the input but we also clear the fourm 
-        setTitle('');
-        setAmount('');
-        setDate('');
-        
+      setTitle('');
+      setAmount('');
+      setDate('');
     };
+
+   
+     let cancelExpenseButton = (
+       <div className="new-expense__actions">
+         <button type="button" onClick={props.onCancel}>Cancel</button>
+       </div>
+     );
+    let addExpenseButton = (
+      <div className="new-expense__actions">
+        <button type="submit">Add Expense</button>
+      </div>
+    );
+
 
     return (
       <form onSubmit={submitHandler}>
         <div className="new-expense__controls">
           <div className="new-expense__control">
             <label>Title</label>
-            <input type="text" 
-            value={enteredTitle}//value={userInput.enteredTitle}
-            onChange={titleChangeHandler}>  
-            </input>
+            <input
+              type="text"
+              value={enteredTitle} //value={userInput.enteredTitle}
+              onChange={titleChangeHandler}
+            ></input>
           </div>
           <div className="new-expense__control">
             <label>Amount</label>
@@ -86,9 +79,8 @@ const ExpenseFourm = (props) =>{
             ></input>
           </div>
         </div>
-        <div className="new-expense__actions">
-          <button type="submit">Add Expense</button>
-        </div>
+        {cancelExpenseButton}
+        {addExpenseButton}
       </form>
     );
 }
