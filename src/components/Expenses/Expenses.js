@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import './Expenses.css';
 import Card from '../UI/Card'
-import ExpenseItem from "./ExpenseItem";
+import ExpenseList from "./ExpenseList";
 import ExpensesFilter from '../ExpenseFilters/ExpensesFilter';
 //This is a Control Compoent to ExpenseFilter because the logic is housed here,
 
@@ -14,35 +14,14 @@ function Expenses( props ){
   };
 
   const filterSelectedYearOfExpense = props.expensesdata.filter(expense => {
-    // if (expense.date.getFullYear().toString() === filteredYear) {
-    //   return expense.date.getFullYear().toString() === filteredYear;
-    // } else {
-    //   return props.expensesdata;
-    // }
+ 
     return expense.date.getFullYear().toString() === filteredYear;
   });
 
-  //  const filterSelectedYearOfExpense2 = props.expensesdata => {
-  //    if (expense.date.getFullYear().toString() === filteredYear) {
-  //       return expense.date.getFullYear().toString() === filteredYear;
-  //    } else {
-  //       return props.expensesdata;
-  //    }
-  //    return expense.date.getFullYear().toString() === filteredYear;
-  //  });
+ 
 
 //recall {} allows you to excute JS code, or dynmaic expression in our jsx code
-let expensesContent = <p className="noItem">No Expense found.</p>;
-if (filterSelectedYearOfExpense.length > 0) {
-  expensesContent = filterSelectedYearOfExpense.map((expense) => (
-    <ExpenseItem
-      key={expense.id} // adding a id to a list of items helps react know where the item is,how long a list of items is, and there for does not have to work as hard to identify it.
-      title={expense.title} // adding a id will also help react update the list faster
-      amount={expense.amount}
-      date={expense.date}
-    />
-  ));
-}
+
 
   return (
     //I want to map every expense into a ExpenstItem element
@@ -52,9 +31,9 @@ if (filterSelectedYearOfExpense.length > 0) {
           selectedProp={filteredYear}
           onChangFilter={filterChangeHandler}
         />
-        {expensesContent}
+        <ExpenseList expensesdata={filterSelectedYearOfExpense}/>
       </Card>
     </div>
   ); 
 };
- export default Expenses;
+export default Expenses;
